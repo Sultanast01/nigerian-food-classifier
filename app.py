@@ -5,7 +5,12 @@ from PIL import Image, ImageOps
 from torchvision import models, transforms
 
 IMG_SIZE = 288
-MODEL_PATH = "nigerian_food_classifier_fp16.pt"   # or the fp16 version if you made one
+from huggingface_hub import hf_hub_download
+
+MODEL_PATH = hf_hub_download(
+    repo_id="techwithst/nigerian-food-classifier",
+    filename="nigerian_food_classifier_fp16.pt",   # exactly as named on Hugging Face
+)   # or the fp16 version if you made one
 
 st.set_page_config(page_title="Nigerian Food Classifier", page_icon="🍲")
 
